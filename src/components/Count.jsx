@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const count = (props) => {
     const [count, setCount] = useState(props.count);
-    const [value, setValue] = useState(4);
+    const [value, setValue] = useState(1);
     const dec = () => {
         setCount(count - 1)
     }
     const inc = () => {
         setCount(count + 1)
-    }
+  }
+  
+  useEffect(() => {
+    console.log("In useEffect");
+  }, [count])
+
     return (
         <>
         <p className="underline">This is a Counter</p>

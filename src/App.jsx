@@ -7,6 +7,8 @@ import Count from './components/Count';
 import {Route, Routes, Link } from 'react-router-dom';
 import UserCard from './components/UserCard';
 import NotFound from './components/NotFound';
+import Contact from './components/Contact';
+import User from './components/User';
 
 function App() {
   // const bool = true;
@@ -38,6 +40,9 @@ function App() {
           </li>
           <li>
           <Link to="/count" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">counter</Link>
+          </li>
+          <li>
+          <Link to="/contact" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</Link>
         </li>
       </ul>
     </div>
@@ -56,9 +61,11 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/users" exact element={<UserList />} />
+        <Route path="/users/:username" exact element={<User/>} />
         <Route path="/language" exact element={<Language />} />
         <Route path="/count" exact element={<Count count={0} value={1} /> } />
         <Route path="*" element={<NotFound />} />
+        <Route path='contact' exact element={<Contact/>}/>
       </Routes>
     </>
   );
