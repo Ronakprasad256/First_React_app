@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import Home from './components/Home';
 import Person from './components/person';
 import Language from './components/Language';
@@ -9,11 +9,16 @@ import UserCard from './components/UserCard';
 import NotFound from './components/NotFound';
 import Contact from './components/Contact';
 import User from './components/User';
+import { useState } from 'react';
+import {Usercontext} from "./userContext"
+import Eform from './components/Eform';
 
 function App() {
   // const bool = true;
+  const [a, setA] = useState(10);
   return (
     <>
+      <Usercontext.Provider value={{a, setA}}>
       <nav>
 <nav className="bg-white border-gray-200 dark:bg-gray-900">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -66,7 +71,9 @@ function App() {
         <Route path="/count" exact element={<Count count={0} value={1} /> } />
         <Route path="*" element={<NotFound />} />
         <Route path='contact' exact element={<Contact/>}/>
-      </Routes>
+        <Route path='form' exact element={<Eform/>}/>
+        </Routes>
+        </Usercontext.Provider>
     </>
   );
 }
